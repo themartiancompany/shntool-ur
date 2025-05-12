@@ -81,9 +81,19 @@ _patches_sums=(
   "fc5b6b0138cb2ff492f074d8c58c1bd8f562d8dee2e536d45d9098bffc0f44e3"
 )
 _tarname="${_pkg}-${pkgver}"
-_uri="${url}/dist/src/${_tarname}.tar.gz"
-_src="${_tarname}.tar.xz::${_uri}"
-_sum="74302eac477ca08fb2b42b9f154cc870593aec8beab308676e4373a5e4ca2102"
+_http_uri="${url}/dist/src/${_tarname}.tar.gz"
+_archive_sum="74302eac477ca08fb2b42b9f154cc870593aec8beab308676e4373a5e4ca2102"
+_archive_evmfs_network="17000"
+_archive_evmfs_address="0x151920938488F193735e83e052368cD41F9d9362"
+# Dvorak
+_archive_evmfs_ns="0x87003Bd6C074C713783df04f36517451fF34CBEf"
+_archive_evmfs_uri="evmfs://${_archive_evmfs_network}/${_archive_evmfs_address}/${_archive_sum}"
+_sum="${_archive_sum}"
+if [[ "${_evmfs}" == "true" ]]; then
+  _src="${_tarname}.tar.xz::${_archive_evmfs_uri}"
+elif [[ "${_evmfs}" == "false" ]]; then
+  _src="${_tarname}.tar.xz::${_http_uri}"
+fi
 source=(
   "${_src}"
   "${_patches[@]}"
@@ -128,6 +138,5 @@ package() {
     "${_make_opts[@]}" \
     install
 }
-
 
 # vim:set ts=2 sw=2 et:
