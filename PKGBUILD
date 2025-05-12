@@ -143,14 +143,23 @@ prepare() {
 
 build() {
   local \
-    _configure_opts=()
+    _configure_opts=() \
+    _cflags=()
   _configure_opts+=(
     --prefix="/usr"
   )
+  _cflags+=(
+    ${CFLAGS}
+    -std="c23"
+  )
 	cd \
     "${srcdir}/${_tarname}"
+  export \
+    CFLAGS="${_cflags[*]}"
+  CFLAGS="${_cflags[*]}" \
 	./configure \
     "${_configure_opts[@]}"
+  CFLAGS="${_cflags[*]}" \
 	make
 }
 
