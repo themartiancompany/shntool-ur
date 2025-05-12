@@ -91,7 +91,7 @@ _patches_sums=(
   "2982c4c030409f2de035b7a833048692440ec9f3445b42326e7e386caa5c9e66"
   "605f2030112e1ed6b68001d97a2ea839b00328995bbd795850fb2595f5797c68"
   "418f9cc575e9d9964ee85819b5db7b38108d2b19a32459ad5e9b5c19d5296292"
-  "8abca791c798b4df256a285a61d7ab3f09bf0f9345f1cffbc7ecbcc6edd611a0"
+  "c46063eb76ccca83cb296f118e2ed6606db35fce90c999e902bc3ffbc0caf559"
   "fc5b6b0138cb2ff492f074d8c58c1bd8f562d8dee2e536d45d9098bffc0f44e3"
 )
 _url="${url}"
@@ -173,12 +173,12 @@ build() {
   )
   _cflags+=(
     ${CFLAGS}
-    -std="c99"
+    -std="gnu99"
     -I"${_include}"
   )
   if [[ "${_os}" == "GNU/Linux" ]]; then
     _cflags+=(
-      -Wno-int-conversion
+      # -Wno-int-conversion
       # -Wno-implicit-function-declaration
     )
   fi
