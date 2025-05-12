@@ -152,6 +152,11 @@ build() {
     ${CFLAGS}
     -std="c99"
   )
+  if [[ "${_os}" == "GNU/Linux" ]]; then
+    _cflags+=(
+      -Wno-int-conversion
+    )
+  fi
 	cd \
     "${srcdir}/${_tarname}"
   export \
