@@ -84,7 +84,7 @@ _patches=(
   '0001-debian_patches_950803.patch'
   "0002-${_pkg}-${pkgver}-large-size.diff"
   "0003-${_pkg}-${pkgver}-large-times.diff"
-  "0004-${_pkg}-${pkgver}-include-stdio.patch"
+  "0004-${_pkg}-include-stdio.patch"
   "0005-debian_patches_no-cdquality-check.patch"
 )
 _patches_sums=(
