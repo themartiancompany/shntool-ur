@@ -150,7 +150,7 @@ build() {
   )
   _cflags+=(
     ${CFLAGS}
-    -std="c23"
+    -std="c99"
   )
 	cd \
     "${srcdir}/${_tarname}"
