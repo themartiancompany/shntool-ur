@@ -83,7 +83,7 @@ _patches_sums=(
 _tarname="${_pkg}-${pkgver}"
 _uri="${url}/dist/src/${_tarname}.tar.gz"
 _src="${_tarname}.tar.xz::${_uri}"
-_sum='5d41f8f42c3c15e3145a7a43539c3eae'
+_sum="74302eac477ca08fb2b42b9f154cc870593aec8beab308676e4373a5e4ca2102"
 source=(
   "${_src}"
   "${_patches[@]}"
