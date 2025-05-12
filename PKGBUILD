@@ -67,7 +67,7 @@ license=(
   'GPL'
 )
 options=(
-  !emptydirs
+  "!emptydirs"
 )
 depends=(
   "${_libc}"
@@ -173,8 +173,8 @@ build() {
   )
   _cflags+=(
     ${CFLAGS}
-    -std="gnu99"
     -I"${_include}"
+    -std="gnu99"
   )
   if [[ "${_os}" == "GNU/Linux" ]]; then
     _cflags+=(
