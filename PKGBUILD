@@ -81,16 +81,18 @@ optdepends=(
 # https://bugs.debian.org/cgi-bin/bugreport.cgi?bug=684600
 # https://salsa.debian.org/debian/shntool/-/tree/master/debian/patches
 _patches=(
-  'debian_patches_950803.patch'
-  'shntool-3.0.10-large-size.diff'
-  'shntool-3.0.10-large-times.diff'
-  'debian_patches_no-cdquality-check.patch'
+  '0001-debian_patches_950803.patch'
+  "0002-${_pkg}-${pkgver}-large-size.diff"
+  "0003-${_pkg}-${pkgver}-large-times.diff"
+  "0004-${_pkg}-${pkgver}-include-stdio.patch"
+  "0005-debian_patches_no-cdquality-check.patch"
 )
 _patches_sums=(
   "2982c4c030409f2de035b7a833048692440ec9f3445b42326e7e386caa5c9e66"
   "605f2030112e1ed6b68001d97a2ea839b00328995bbd795850fb2595f5797c68"
   "418f9cc575e9d9964ee85819b5db7b38108d2b19a32459ad5e9b5c19d5296292"
   "fc5b6b0138cb2ff492f074d8c58c1bd8f562d8dee2e536d45d9098bffc0f44e3"
+  "8abca791c798b4df256a285a61d7ab3f09bf0f9345f1cffbc7ecbcc6edd611a0"
 )
 _url="${url}"
 _tarname="${_pkg}-${pkgver}"
@@ -177,7 +179,7 @@ build() {
   if [[ "${_os}" == "GNU/Linux" ]]; then
     _cflags+=(
       -Wno-int-conversion
-      -Wno-implicit-function-declaration
+      # -Wno-implicit-function-declaration
     )
   fi
 	cd \

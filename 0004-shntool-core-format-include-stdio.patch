@@ -1,0 +1,10 @@
+--- src/core_format.c	2025-05-12 14:16:17.000000000 +0000
++++ src/core_format.c	2025-05-12 15:27:46.610959342 +0000
+@@ -16,6 +16,7 @@
+  *  Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston, MA  02110-1301, USA.
+  */
+ 
++#include <stdio.h>
+ #include <string.h>
+ #include <unistd.h>
+ #include <sys/types.h>
