@@ -102,9 +102,9 @@ _archive_sig_fs_network="100"
 _archive_fs_address="0x151920938488F193735e83e052368cD41F9d9362"
 _archive_sig_fs_address="0x69470b18f8b8b5f92b48f6199dcb147b4be96571"
 # Dvorak
-_archive_evmfs_ns="0x87003Bd6C074C713783df04f36517451fF34CBEf"
-_archive_evmfs_uri="evmfs://${_archive_fs_network}/${_archive_fs_address}/${_archive_sum}"
-_archive_sig_evmfs_uri="evmfs://${_archive_sig_fs_network}/${_archive_sig_fs_address}/${_archive_sig_sum}"
+_evmfs_ns="0x87003Bd6C074C713783df04f36517451fF34CBEf"
+_archive_evmfs_uri="evmfs://${_archive_fs_network}/${_archive_fs_address}/${_evmfs_ns}/${_archive_sum}"
+_archive_sig_evmfs_uri="evmfs://${_archive_sig_fs_network}/${_archive_sig_fs_address}/${_evmfs_ns}/${_archive_sig_sum}"
 _sum="${_archive_sum}"
 source=(
   "${_patches[@]}"
