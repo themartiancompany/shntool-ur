@@ -75,10 +75,10 @@ _patches=(
   'debian_patches_no-cdquality-check.patch'
 )
 _patches_sums=(
-  'a3aa5b817cedb4226fa32340609a5995'
-  '596398b13e02b243078320ebde4743fb'
-  '4265935ef1d684a4b49041278ffda7de'
-  '6f0d61ddbf8cbee5c0b51a99e987ddda'
+  "2982c4c030409f2de035b7a833048692440ec9f3445b42326e7e386caa5c9e66"
+  "605f2030112e1ed6b68001d97a2ea839b00328995bbd795850fb2595f5797c68"
+  "605f2030112e1ed6b68001d97a2ea839b00328995bbd795850fb2595f5797c68"
+  "fc5b6b0138cb2ff492f074d8c58c1bd8f562d8dee2e536d45d9098bffc0f44e3"
 )
 _tarname="${_pkg}-${pkgver}"
 _uri="${url}/dist/src/${_tarname}.tar.gz"
@@ -88,14 +88,10 @@ source=(
   "${_src}"
   "${_patches[@]}"
 )
-md5sums=(
+sha256sums=(
   "${_sum}"
   "${_patches_sums[@]}"
 )
-# sha256sums=(
-#   "${_sum}"
-#   "${_patches_sums[@]}"
-# )
 
 prepare() {
 	cd \
