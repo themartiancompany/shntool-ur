@@ -57,10 +57,10 @@ _pkgdesc=(
 )
 pkgdesc="${_pkgdesc[*]}"
 arch=(
-  'x86_64'
-  'i686'
   'arm'
   'aarch64'
+  'i686'
+  'x86_64'
 )
 url="http://${_proj}.freeshell.org/${_pkg}"
 license=(
@@ -133,7 +133,7 @@ sha256sums+=(
 
 prepare() {
 	cd \
-    "${srcdir}/${_tarname}"
+    "${_tarname}"
   for _patch in "${_patches[@]}"; do
     patch \
       -Np1 < \
@@ -158,7 +158,7 @@ build() {
     )
   fi
 	cd \
-    "${srcdir}/${_tarname}"
+    "${_tarname}"
   export \
     CFLAGS="${_cflags[*]}"
   CFLAGS="${_cflags[*]}" \
@@ -175,7 +175,7 @@ package() {
     DESTDIR="${pkgdir}"
   )
 	cd \
-    "${srcdir}/${_tarname}"
+    "${_tarname}"
 	make \
     "${_make_opts[@]}" \
     install
