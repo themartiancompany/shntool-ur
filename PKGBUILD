@@ -80,27 +80,43 @@ _patches_sums=(
   "605f2030112e1ed6b68001d97a2ea839b00328995bbd795850fb2595f5797c68"
   "fc5b6b0138cb2ff492f074d8c58c1bd8f562d8dee2e536d45d9098bffc0f44e3"
 )
+_url="${url}"
 _tarname="${_pkg}-${pkgver}"
-_http_uri="${url}/dist/src/${_tarname}.tar.gz"
+_http_uri="${_url}/dist/src/${_tarname}.tar.gz"
 _archive_sum="74302eac477ca08fb2b42b9f154cc870593aec8beab308676e4373a5e4ca2102"
-_archive_evmfs_network="17000"
-_archive_evmfs_address="0x151920938488F193735e83e052368cD41F9d9362"
+_archive_sig_sum="efc003de90008e8c3dff3d5cc7913b0a173b4e6a6f167110e3c384de72fee04f"
+_archive_fs_network="17000"
+_archive_sig_fs_network="100"
+_archive_fs_address="0x151920938488F193735e83e052368cD41F9d9362"
+_archive_sig_fs_address="0x69470b18f8b8b5f92b48f6199dcb147b4be96571"
 # Dvorak
 _archive_evmfs_ns="0x87003Bd6C074C713783df04f36517451fF34CBEf"
-_archive_evmfs_uri="evmfs://${_archive_evmfs_network}/${_archive_evmfs_address}/${_archive_sum}"
+_archive_evmfs_uri="evmfs://${_archive_fs_network}/${_archive_fs_address}/${_archive_sum}"
+_archive_sig_evmfs_uri="evmfs://${_archive_sig_fs_network}/${_archive_sig_fs_address}/${_archive_sig_sum}"
 _sum="${_archive_sum}"
+source=(
+  "${_patches[@]}"
+)
+sha256sums=(
+  "${_patches_sums[@]}"
+)
 if [[ "${_evmfs}" == "true" ]]; then
+  _archive_sig_src="${_tarname}.tar.xz.sig::${_archive_sig_evmfs_uri}"
+  source+=(
+    "${_archive_sig_src}"
+  )
+  sha256sums+=(
+    "${_archive_sig_sum}"
+  )
   _src="${_tarname}.tar.xz::${_archive_evmfs_uri}"
 elif [[ "${_evmfs}" == "false" ]]; then
   _src="${_tarname}.tar.xz::${_http_uri}"
 fi
-source=(
+source+=(
   "${_src}"
-  "${_patches[@]}"
 )
-sha256sums=(
+sha256sums+=(
   "${_sum}"
-  "${_patches_sums[@]}"
 )
 
 prepare() {
