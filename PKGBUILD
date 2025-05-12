@@ -141,20 +141,43 @@ prepare() {
   done
 }
 
+_usr_get() {
+  local \
+    _bin
+  _bin="$( \
+    dirname \
+      "$(command \
+           -v \
+	   "clang" \
+	   "cxx" \
+	   "g++" | \
+	   head \
+	     -n \
+	     1)")"
+  echo \
+    "$(dirname \
+         "${_bin}")"
+}
+
 build() {
   local \
     _configure_opts=() \
-    _cflags=()
+    _cflags=() \
+    _include
+  _include="$( \
+    _usr_get)/include"
   _configure_opts+=(
     --prefix="/usr"
   )
   _cflags+=(
     ${CFLAGS}
     -std="c99"
+    -I"${_include}"
   )
   if [[ "${_os}" == "GNU/Linux" ]]; then
     _cflags+=(
       -Wno-int-conversion
+      -Wno-implicit-function-declaration
     )
   fi
 	cd \
