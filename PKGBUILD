@@ -26,6 +26,18 @@
 # Maintainer: schuay <jakob.gruber@gmail.com>
 # Contributor: Michal Hybner <dta081@gmail.com>
 
+_evmfs_available="$( \
+  command \
+    -v \
+    "evmfs" || \
+    true)"
+if [[ ! -v "_evmfs" ]]; then
+  if [[ "${_evmfs_available}" != "" ]]; then
+    _evmfs="true"
+  elif [[ "${_evmfs_available}" == "" ]]; then
+    _evmfs="false"
+  fi
+fi
 _os="$( \
   uname \
     -o)"
@@ -41,7 +53,7 @@ pkgver=3.0.10
 pkgrel=7
 _pkgdesc=(
   "A multi-purpose WAVE data"
-  "processing and reporting utility"
+  "processing and reporting utility."
 )
 pkgdesc="${_pkgdesc[*]}"
 arch=(
