@@ -19,12 +19,20 @@
 #    You should have received a copy of the GNU Affero General Public License
 #    along with this program.  If not, see <https://www.gnu.org/licenses/>.
 
-# Maintainer: Truocolo <truocolo@aol.com>
-# Maintainer: Truocolo <truocolo@0x6E5163fC4BFc1511Dbe06bB605cc14a3e462332b>
-# Maintainer: Pellegrino Prevete (dvorak) <pellegrinoprevete@gmail.com>
-# Maintainer: Pellegrino Prevete (dvorak) <dvorak@0x87003Bd6C074C713783df04f36517451fF34CBEf>
-# Maintainer: schuay <jakob.gruber@gmail.com>
-# Contributor: Michal Hybner <dta081@gmail.com>
+# Maintainer:
+#   Truocolo
+#     <truocolo@aol.com>
+#     <truocolo@0x6E5163fC4BFc1511Dbe06bB605cc14a3e462332b>
+# Maintainer:
+#   Pellegrino Prevete (dvorak)
+#     <pellegrinoprevete@gmail.com>
+#     <dvorak@0x87003Bd6C074C713783df04f36517451fF34CBEf>
+# Maintainer:
+#   schuay
+#     <jakob.gruber@gmail.com>
+# Contributor:
+#   Michal Hybner
+#     <dta081@gmail.com>
 
 _evmfs_available="$( \
   command \
@@ -99,10 +107,13 @@ _tarname="${_pkg}-${pkgver}"
 _http_uri="${_url}/dist/src/${_tarname}.tar.gz"
 _archive_sum="74302eac477ca08fb2b42b9f154cc870593aec8beab308676e4373a5e4ca2102"
 _archive_sig_sum="efc003de90008e8c3dff3d5cc7913b0a173b4e6a6f167110e3c384de72fee04f"
-_archive_fs_network="17000"
-_archive_sig_fs_network="100"
-_archive_fs_address="0x151920938488F193735e83e052368cD41F9d9362"
-_archive_sig_fs_address="0x69470b18f8b8b5f92b48f6199dcb147b4be96571"
+# _archive_fs_network="17000"
+_archive_fs_network="100"
+_archive_sig_fs_network="${_archive_fs_network}"
+# _archive_sig_fs_network="56"
+# _archive_fs_address="0x151920938488F193735e83e052368cD41F9d9362"
+_archive_fs_address="0x69470b18f8b8b5f92b48f6199dcb147b4be96571"
+_archive_sig_fs_address="${_archive_fs_address}"
 # Dvorak
 _evmfs_ns="0x87003Bd6C074C713783df04f36517451fF34CBEf"
 _archive_evmfs_uri="evmfs://${_archive_fs_network}/${_archive_fs_address}/${_evmfs_ns}/${_archive_sum}"
